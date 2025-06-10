@@ -22,7 +22,9 @@ Our extension:
 
 ## 📸 Screenshots
 
-*Coming soon - add screenshots of before/after titles*
+| Before                     | After                    |
+| -------------------------- | ------------------------ |
+| ![Before](assets/before.png) | ![After](assets/after.png) |
 
 ## 🛠️ Features
 
@@ -71,6 +73,7 @@ cd youtube-ai-title-replacer
    ```
 4. **Load the extension in Chrome**
 
+
 ## 📖 How to Use
 
 1. **Navigate to YouTube** (any page with videos)
@@ -96,7 +99,6 @@ cd youtube-ai-title-replacer
 **🔒 Zero data collection** - We don't store, track, or collect any personal information
 
 **✅ Efficient resource usage** - Runs only when needed, no constant background processes or CPU drain
-
 
 ## 🤝 Contributing
 
