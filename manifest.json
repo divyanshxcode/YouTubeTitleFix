@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "YouTube AI Title Replacer",
-  "version": "0.1",
+  "name": "YouTube AI Title!",
+  "version": "0.1.1",
   "description": "Replace clickbait YouTube video titles with AI-generated accurate titles. Get clear, descriptive titles that tell you exactly what's in the video.",
   "permissions": ["scripting", "activeTab"],
   "host_permissions": [
@@ -9,10 +9,16 @@
     "https://api.supadata.ai/*",
     "https://generativelanguage.googleapis.com/*"
   ],
-  "content_scripts": [
+   "content_scripts": [
     {
       "matches": ["https://www.youtube.com/*"],
-      "js": ["config.js", "content.js"]
+      "js": [
+        "config.js",
+        "utils.js",
+        "transcript.js", 
+        "gemini.js",
+        "content.js"
+      ]
     }
   ],
   "icons": {
@@ -28,6 +34,6 @@
       "48": "icons/icon48.png",
       "128": "icons/icon128.png"
     },
-    "default_title": "YouTube AI Title Replacer"
+    "default_title": "YouTube AI Title!"
   }
 }
