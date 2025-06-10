@@ -22,9 +22,10 @@ Our extension:
 
 ## 📸 Screenshots
 
-| Before                     | After                    |
-| -------------------------- | ------------------------ |
-| ![Before](assets/before.png) | ![After](assets/after.png) |
+| Original                     | AI-Generated Title                    |
+|:----------------------------:|:-------------------------------------:|
+| ![Before](assets/original.png) | ![After](assets/ai-title.png) |
+
 
 ## 🛠️ Features
 
