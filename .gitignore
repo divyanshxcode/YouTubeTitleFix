@@ -4,6 +4,3 @@ config.js
 .cache/
 .temp
 .cache
-
-./server/node_modules
-./server/index.html
