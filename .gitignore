@@ -6,3 +6,4 @@ config.js
 .cache
 
 ./server/node_modules
+./server/index.html
