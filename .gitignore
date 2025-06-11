@@ -1,5 +1,6 @@
 .env
 config.js
+archive/
 
 .cache/
 .temp

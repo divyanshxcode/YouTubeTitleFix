@@ -1,33 +1,41 @@
-// MAIN CONTENT
+// === MAIN CONTENT SCRIPT ===
 
 // Main processing function
 async function processVideo(videoId, titleElem, btn) {
+  const originalTitle = titleElem.innerText;
+
   try {
     btn.innerText = "Loading...";
+    btn.style.backgroundColor = "#ff9800"; // Orange for loading
 
-    const transcript = await fetchTranscriptText(
-      videoId,
-      CONFIG.SUPADATA_API_KEY
-    );
-    console.log("Transcript (150 words max):", transcript);
+    // Call backend API
+    const result = await generateAITitle(videoId);
 
-    const aiTitle = await generateAiTitle(transcript);
-    console.log("AI Generated Title:", aiTitle);
-
-    const originalTitle = titleElem.innerText;
-    titleElem.innerText = aiTitle;
+    // Update UI with AI title
+    titleElem.innerText = result.title;
     titleElem.title = `Original: ${originalTitle}`;
 
-    btn.innerText = "✓ Done";
-    btn.style.backgroundColor = "#4caf50";
+    // Show success state
+    btn.innerText = result.cached ? "✓ Cached" : "✓ Generated";
+    btn.style.backgroundColor = result.cached ? "#2196f3" : "#4caf50"; // Blue for cached, Green for new
+
+    console.log("🎯 Title replaced:", {
+      original: originalTitle,
+      aiGenerated: result.title,
+      fromCache: result.cached,
+    });
   } catch (err) {
-    console.error("Error:", err);
-    btn.innerText = "Error";
-    btn.style.backgroundColor = "#f44336";
+    console.error("💥 Processing error:", err);
+
+    // Show error state
+    btn.innerText = "Transcript Unavailable";
+    btn.style.backgroundColor = "#f44336"; // Red for error
+
+    // Reset after 3 seconds
     setTimeout(() => {
       btn.innerText = "AI Title";
       btn.style.backgroundColor = "#1976d2";
-    }, 2000);
+    }, 3000);
   }
 }
 
@@ -51,6 +59,7 @@ function injectButtonToVideoItem(item) {
     return false;
   });
 
+  // Insert button in metadata area
   const metadataArea = item.querySelector("#metadata, #meta, .metadata");
   if (metadataArea) {
     const titleContainer =
@@ -61,7 +70,7 @@ function injectButtonToVideoItem(item) {
   }
 }
 
-// Observer setup
+// Observer setup (unchanged)
 function observeYouTube() {
   const videoSelectors = [
     "ytd-rich-grid-media",
@@ -92,6 +101,7 @@ function observeYouTube() {
 
   observer.observe(document.body, { childList: true, subtree: true });
 
+  // Initial injection
   videoSelectors.forEach((selector) => {
     document.querySelectorAll(selector).forEach((item) => {
       injectButtonToVideoItem(item);
@@ -100,5 +110,5 @@ function observeYouTube() {
 }
 
 // Initialize
-console.log("Content script loaded - AI Title Generator ready");
+console.log("🎬 YouTube AI Title Replacer v0.2 loaded");
 observeYouTube();

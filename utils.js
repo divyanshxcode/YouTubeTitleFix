@@ -1,4 +1,4 @@
-// UTILITY FUNCTIONS
+// === UTILITY FUNCTIONS ===
 
 function getVideoIdFromUrl(url) {
   try {
@@ -7,6 +7,10 @@ function getVideoIdFromUrl(url) {
   } catch {
     return null;
   }
+}
+
+function createVideoUrl(videoId) {
+  return `https://www.youtube.com/watch?v=${videoId}`;
 }
 
 function createButton(text, onClick) {

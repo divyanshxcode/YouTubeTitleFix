@@ -1,39 +1,24 @@
 {
   "manifest_version": 3,
-  "name": "YouTube AI Title!",
-  "version": "0.1.1",
-  "description": "Replace clickbait YouTube video titles with AI-generated accurate titles. Get clear, descriptive titles that tell you exactly what's in the video.",
+  "name": "YouTube Title Fix",
+  "version": "0.2.0",
+  "description": "Replace clickbait YouTube titles with AI-generated accurate titles. No setup required!",
   "permissions": ["scripting", "activeTab"],
   "host_permissions": [
-    "https://www.youtube.com/*", 
-    "https://api.supadata.ai/*",
-    "https://generativelanguage.googleapis.com/*"
+    "https://www.youtube.com/*",
+    "http://localhost:3000/*",
+    "https://your-backend-domain.com/*"
   ],
-   "content_scripts": [
-    {
-      "matches": ["https://www.youtube.com/*"],
-      "js": [
-        "config.js",
-        "utils.js",
-        "transcript.js", 
-        "gemini.js",
-        "content.js"
-      ]
-    }
-  ],
+ "content_scripts": [
+  {
+    "matches": ["https://www.youtube.com/*"],
+    "js": ["utils.js", "api.js", "content.js"]
+  }
+],
   "icons": {
     "16": "icons/icon16.png",
-    "32": "icons/icon32.png",
+    "32": "icons/icon32.png", 
     "48": "icons/icon48.png",
     "128": "icons/icon128.png"
-  },
-  "action": {
-    "default_icon": {
-      "16": "icons/icon16.png",
-      "32": "icons/icon32.png",
-      "48": "icons/icon48.png",
-      "128": "icons/icon128.png"
-    },
-    "default_title": "YouTube AI Title!"
   }
 }
