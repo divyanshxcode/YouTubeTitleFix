@@ -1,5 +1,3 @@
-// Gemini AI Functions
-
 async function generateAiTitle(transcript) {
   const prompt = `Based on this video transcript, generate a clear, simple, and accurate title that tells viewers exactly what the video is about. Avoid clickbait, sensationalism, or vague language. Keep it under 60 characters and make it descriptive:
 
