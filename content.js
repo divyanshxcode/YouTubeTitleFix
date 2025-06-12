@@ -11,13 +11,11 @@ async function processVideo(videoId, titleElem, btn) {
     // Call backend API
     const result = await generateAITitle(videoId);
 
-    // Update UI with AI title
     titleElem.innerText = result.title;
     titleElem.title = `Original: ${originalTitle}`;
 
-    // Show success state
     btn.innerText = result.cached ? "✓ Cached" : "✓ Generated";
-    btn.style.backgroundColor = result.cached ? "#2196f3" : "#4caf50"; // Blue for cached, Green for new
+    btn.style.backgroundColor = result.cached ? "#2196f3" : "#4caf50";
 
     console.log("🎯 Title replaced:", {
       original: originalTitle,
@@ -28,14 +26,13 @@ async function processVideo(videoId, titleElem, btn) {
     console.error("💥 Processing error:", err);
 
     // Show error state
-    btn.innerText = "Transcript Unavailable";
+    btn.innerText = "Unable";
     btn.style.backgroundColor = "#f44336"; // Red for error
 
     // Reset after 3 seconds
     setTimeout(() => {
-      btn.innerText = "AI Title";
-      btn.style.backgroundColor = "#1976d2";
-    }, 3000);
+      btn.hidden = true;
+    }, 2000);
   }
 }
 
@@ -70,7 +67,6 @@ function injectButtonToVideoItem(item) {
   }
 }
 
-// Observer setup (unchanged)
 function observeYouTube() {
   const videoSelectors = [
     "ytd-rich-grid-media",

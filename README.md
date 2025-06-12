@@ -22,10 +22,9 @@ Our extension:
 
 ## 📸 Screenshots
 
-| Original                     | AI-Generated Title                    |
-|:----------------------------:|:-------------------------------------:|
+|           Original           |     AI-Generated Title     |
+| :--------------------------: | :-------------------------: |
 | ![Before](assets/original.png) | ![After](assets/ai-title.png) |
-
 
 ## 🛠️ Features
 
@@ -73,7 +72,6 @@ cd youtube-ai-title-replacer
    };
    ```
 4. **Load the extension in Chrome**
-
 
 ## 📖 How to Use
 
@@ -128,6 +126,6 @@ We welcome contributions! Here's how you can help:
 
 ---
 
-**Made with ❤️ to fight clickbait and save your time**
+**Made with ❤️ by [divyanshxcode](https://github.com/divyanshxcode) and [Aayush4532](https://github.com/Aayush4532/)!**
 
 *Star ⭐ this repository if you found it helpful!*
