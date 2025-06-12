@@ -14,26 +14,28 @@ function createVideoUrl(videoId) {
 }
 
 function createButton(text, onClick) {
-  const buttonContainer = document.createElement("div");
-  buttonContainer.style.position = "relative";
-  buttonContainer.style.display = "inline-block";
-  buttonContainer.style.marginLeft = "8px";
-  buttonContainer.style.zIndex = "9999";
-
   const btn = document.createElement("button");
   btn.className = "fetch-transcript-btn";
   btn.innerText = text;
-  btn.style.fontSize = "12px";
-  btn.style.padding = "2px 6px";
-  btn.style.cursor = "pointer";
-  btn.style.backgroundColor = "#1976d2";
-  btn.style.color = "white";
-  btn.style.border = "none";
-  btn.style.borderRadius = "4px";
-  btn.style.position = "relative";
-  btn.style.zIndex = "10000";
+  btn.style.cssText = `
+        margin-left: 8px;
+        font-size: 12px;
+        padding: 2px 6px;
+        cursor: pointer;
+        background-color: #1976d2;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        display: inline-block;
+        vertical-align: middle;
+        position: relative;
+        z-index: 1;
+        max-width: 60px;
+        overflow: hidden;
+        white-space: nowrap;
+    `;
 
   btn.onclick = onClick;
-  buttonContainer.appendChild(btn);
-  return { container: buttonContainer, button: btn };
+
+  return { container: btn, button: btn };
 }
